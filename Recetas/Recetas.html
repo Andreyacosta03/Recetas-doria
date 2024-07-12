@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <style>
+        *, body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: "Dosis";
+        }
+
+        .header {
+            background-color: #193774;
+            padding: 15px 20px;
+            width: 100%;
+            position: sticky;
+            top: 0;
+        }
+        .div-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            gap: 10px; 
+        }
+
+        .div-barra {
+            display: flex;
+            width: 60%;
+            justify-content: center;
+            align-items: center;
+        }
+        .barra {
+            margin: 5px;
+            display: flex;
+            box-sizing: border-box;
+            flex: 1;
+        }
+        .barra input {
+            flex: 1;
+            padding: 12px;
+            border-radius: 5px;
+        }
+
+        ::placeholder{
+            font-size: 15px;
+        }
+        .icon-lupa {
+            width: 40px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .nav {
+            padding: 10px;
+        }
+        .nav li {
+            display: inline-block;
+            padding: 0 12px;
+            cursor: pointer;
+            color: #fff39a;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .nav li:hover {
+    text-shadow: 2px 2px 5px rgba(255, 216, 87, 0.7);
+}
+        .div-main {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-secundario {
+            display: flex;
+            background-color: white;
+            width: 100%;
+        }
+
+        .div-vacio {
+            width: 5%;
+        }
+
+        .menu-secundario nav {
+            width: 95%;
+        }
+        .menu-secundario li {
+            display: inline-block;
+            padding: 12px 15px;
+            cursor: pointer;
+            color: #1e1e1c;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .banner-principal {
+            width: 100%;
+            height: auto;
+        }
+
+        .section-preparar {
+            background-color: #ebebe6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            padding: 20px 10px 20px 10px;
+        }
+
+        .section-preparar h1 {
+            color: #e5a246;
+            font-size: 25px;
+            font-weight: 700;
+        }
+        .section-preparar h2 {
+            color: #3f5074;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .button-section {
+            width: 60%;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .button-section button:hover{
+            cursor: pointer;
+        }
+
+        .button-section button {
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #ffd857;
+            color: #3f5074;
+            font-size: 15px;
+            font-weight: 700;
+            width: 30%;
+            border: none;
+        }
+
+        .section-recetas{
+            display: flex;
+            justify-content: center;
+            background-image: url(fondo-recetas.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: scroll;
+        }
+        .container-grid{
+            display: grid;
+            margin: 30px;
+            padding: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-item{
+            box-sizing: border-box;
+            border-radius: 40px;
+            background-color: #fefaee;
+        }
+
+        .img-receta{
+            max-width: 100%;
+            height: auto;
+            border-radius: 40px;
+        }
+
+        .grid-item h2{
+            text-align: center;
+            color: #3f5074;
+            font-size: 17px;
+            font-weight: 700;
+            margin: 15px 5px 10px 5px;
+
+        }
+
+        .grid-item button{
+            display: block;
+            padding: 10px 20px;
+            margin: 35px auto;
+            color: #e5a246;
+            background-color: #fff;
+            border: 1px solid  #fac71b;;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+        .grid-item button:hover{
+            cursor: pointer;
+            background-color: #e5a246;
+            color: white;
+        }
+        .footer {
+            flex: 1;
+            background-color: #193774;
+            padding: 25px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer img{
+            width:60px;
+        }
+
+        .footer h2{
+            color: white;
+            font-weight: 400;
+            font-size: 20px;
+        }
+
+        .div-button{
+            width: 60%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .div-button button{
+            background-color: transparent;
+            outline: none;
+            border: none;
+            color: white;
+            font-family:Arial;
+        }
+
+        .footer p{
+            color: white;
+            font-size: 10px;
+        }
+        @media screen and (max-width:900px) {
+            .div-header nav{
+                padding: 0;
+            }
+            .div-header ul{
+                display: flex;
+                justify-content: center;
+            }
+
+            .div-header li{
+                padding: 0 5px 0 5px;
+                font-size: 12px;
+            }
+            .button-section{
+                width: 100%;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .button-section button{
+                width: 40%;
+                padding: 5px 10px;
+            }
+            .section-recetas{
+                background: none;
+                background-color: #ebebe6;
+            }
+
+           .div-button{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            }
+            .div-button button{
+                font-size: 10px;
+            }
+            .footer p{
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="div-header">
+            <div class="div-barra">
+                <div class="barra">
+                    <input type="text" placeholder="Busca tu receta preferida...">
+                    <img class="icon-lupa" src="/icono-lupa.jpg" alt="">
+                </div>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li>INICIO</li>
+                    <li>CONÓCENOS</li>
+                    <li>PRODUCTOS</li>
+                    <li>RECETAS</li>
+                    <li>BLOG</li>
+                    <li>DIVERSIÓN</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="div-main">
+        <main>
+            <div class="menu-secundario">
+                <div class="div-vacio"></div>
+                <nav>
+                    <ul>
+                        <li>Inicio</li>
+                        <li>Recetas</li>
+                    </ul>
+                </nav>
+            </div>
+            <section class="section-banner-principal">
+                <img class="banner-principal" src="banner_doria.jpg" alt="">
+            </section>
+
+            <section class="section-preparar">
+                <h1>¿QUÉ QUIERES PREPARAR HOY?</h1>
+                <h2>BUSCAR POR</h2>
+                <div class="button-section">
+                    <button>PRODUCTO</button>
+                    <button>INGREDIENTE</button>
+                </div>
+            </section>
+
+            <section class="section-recetas">
+                <div class="container-grid">
+
+                    <div class="grid-item">
+                        <img class="img-receta" src="receta-1.jpg" alt=""><h2>RECETA PASTA DE LETRAS EN SALSITA ROJA</h2>
+                    <button class="button-receta">VER RECETA</button></div>
+
+                    <div class="grid-item">
+                        <img class="img-receta" src="receta-2.jpg" alt=""><h2>RECETA SOPITA DE LETRAS CON POLLITO</h2>
+                    <button class="button-receta">VER RECETA</button></div>
+
+                    <div class="grid-item">
+                        <img class="img-receta" src="receta-3.jpg" alt=""><h2>MACARRONES CON QUESO</h2>
+                    <button class="button-receta">VER RECETA</button></div>
+
+                    <div class="grid-item"> <img class="img-receta" src="receta-4.jpg" alt=""><h2>LASAGNA DE PEPERONI</h2>
+                    <button class="button-receta">VER RECETA</button></div>
+
+                    <div class="grid-item"> <img class="img-receta" src="receta-5.jpg" alt=""><h2>CUPCAKES DE LASAGNA DORIA</h2>
+                    <button class="button-receta">VER RECETA</button></div>
+
+                    <div class="grid-item"> <img class="img-receta" src="receta-6.jpg" alt=""><h2>OSITO DE LETRAS DORIA</h2>
+                    <button class="button-receta">VER RECETA</button></div>
+
+                    <div class="grid-item"> <img class="img-receta" src="receta-7.jpg" alt=""><h2>PASTAS CON POLLO DESMECHADO</h2>
+                    <button class="button-receta">VER RECETA</button></div>
+
+                    <div class="grid-item"> <img class="img-receta" src="receta-8.jpg" alt=""><h2>RAMEN RECETA</h2>
+                    <button class="button-receta">VER RECETA</button></div>
+
+                    <div class="grid-item"> <img class="img-receta" src="receta-9.jpg" alt=""><h2>RECETA PASTA DE LETRAS EN SALSITA ROJA</h2>
+                    <button class="grid-receta">VER RECETA</button></div>
+                </div> 
+            </section>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <img src="icono-doria.png" alt="">
+        <h2>Productos Alimenticios Doria SAS
+        </h2>
+        <div class="div-button">
+            <button class="button-footer">
+                CONTÁCTANOS AL 01 8000 511122
+            </button>
+            <button class="button-footer">
+               servicioalclientedoria@alimentos.com
+            </button>
+        </div>
+        <p>© 2024 - Términos y Condiciones. · Todos los derechos reservados ©DORIA. · Política de tratamiento de datos</p>
+    </footer>
+</body>
+</html>
